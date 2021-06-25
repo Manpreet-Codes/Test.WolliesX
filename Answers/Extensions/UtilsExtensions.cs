@@ -1,12 +1,10 @@
 ﻿using Answers.Modal;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Answers.Extensions
 {
-    public static class Extensions
+    public static class UtilsExtensions
     {
         public static bool CompareProductList(this List<Product> list1, List<Product> list2)
         {
@@ -19,7 +17,7 @@ namespace Answers.Extensions
             {
                 Product Object1 = item;
                 Product Object2 = list2.ElementAt(list1.IndexOf(item));
-                               
+
                 if ((Object1 == null && Object2 != null) || (Object2 == null && Object1 != null) ||
                     !Object1.name.Equals(Object2.name))
                 {
@@ -45,7 +43,6 @@ namespace Answers.Extensions
                     IsEqual = false;
                     break;
                 }
-
             }
 
             return IsEqual;

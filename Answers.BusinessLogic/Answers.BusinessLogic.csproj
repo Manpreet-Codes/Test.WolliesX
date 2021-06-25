@@ -7,10 +7,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="2.2.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Answers.DataLayer\Answers.DataLayer.csproj" />
+    <ProjectReference Include="..\Answers.DataLayer\Answers.Models.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,19 +1,17 @@
 ﻿using Answers.Extensions;
 using Answers.Modal;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Answers.Services.Interfaces.ProductSorting.Tests
 {
     [TestFixture()]
     public class ProductSortingServiceLowPriceTests
     {
-        List<Product> products;
-        List<Product> out_products;
+        private List<Product> products;
+        private List<Product> out_products;
 
-        ProductSortingServiceLowPrice productSortingServiceLowPrice;
+        private ProductSortingServiceLowPrice productSortingServiceLowPrice;
 
         [SetUp]
         public void SetUp()

@@ -1,9 +1,11 @@
 ﻿using Answers.Modal;
 using Answers.Services.Interfaces.Data;
 using Answers.Services.Interfaces.ShoppingProcessor;
+using Answers.Settings;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Answers.Services.Interfaces.ProductSorting
@@ -12,23 +14,23 @@ namespace Answers.Services.Interfaces.ProductSorting
     {
         private readonly IHttpDataService _httpDataService;
         private readonly IShoppingHistoryProcessor _shoppingHistoryProcessor;
+        private readonly string ShoppingHistoryUrl;
 
         public ProductSortingServiceNameRecommeded(IHttpDataService httpDataService,
-            IShoppingHistoryProcessor shoppingHistoryProcessor)
+            IShoppingHistoryProcessor shoppingHistoryProcessor, IOptions<AppSettings> settings)
         {
             _httpDataService = httpDataService;
             _shoppingHistoryProcessor = shoppingHistoryProcessor;
+            ShoppingHistoryUrl = settings.Value.ShoppingHistoryUrl;
         }
 
         public async Task<List<Product>> SortProductData(List<Product> products)
         {
             List<Product> SortedProducts = new List<Product>();
+                       
+            var shopppingHistory = await _httpDataService.GetRequest(ShoppingHistoryUrl);
 
-            var shopppingHistory = await _httpDataService.GetRequest("http://dev-wooliesx-recruitment.azurewebsites.net/api/resource/shopperHistory?token=eb848457-3d00-454f-9270-4490790cea30");
-
-            
-
-            var res_prods = await _shoppingHistoryProcessor.ProcessShoppingHistoryForProductOccurance(shopppingHistory);
+             var res_prods = await _shoppingHistoryProcessor.ProcessShoppingHistoryForProductOccurance(shopppingHistory);
 
             var grp2 = res_prods.OrderByDescending(x => x.Value).Select(x => x.Key).ToList();
 

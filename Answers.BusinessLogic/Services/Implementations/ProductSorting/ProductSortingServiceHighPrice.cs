@@ -10,7 +10,6 @@ namespace Answers.Services.Interfaces.ProductSorting
         public async Task<List<Product>> SortProductData(List<Product> products)
         {
             return products.OrderByDescending(x => x.price).ToList();
-
         }
     }
 }

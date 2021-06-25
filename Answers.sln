@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Answers", "Answers\Answers.csproj", "{B4F7BFBB-074C-4938-A6E3-6ED3D71D8BF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Answers.Tests", "AnswersTests\Answers.Tests.csproj", "{B307822A-A24C-4DD1-8CEA-7944E66EC8E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Answers.Tests", "AnswersTests\Answers.Tests.csproj", "{B307822A-A24C-4DD1-8CEA-7944E66EC8E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Answers.DataLayer", "Answers.DataLayer\Answers.DataLayer.csproj", "{351F45FE-C3A5-45A9-BE2D-8B4723167F7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Answers.Models", "Answers.DataLayer\Answers.Models.csproj", "{351F45FE-C3A5-45A9-BE2D-8B4723167F7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Answers.BusinessLogic", "Answers.BusinessLogic\Answers.BusinessLogic.csproj", "{7A1F68EF-B6D7-45C2-B71C-4168B7D244B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Answers.BusinessLogic", "Answers.BusinessLogic\Answers.BusinessLogic.csproj", "{7A1F68EF-B6D7-45C2-B71C-4168B7D244B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

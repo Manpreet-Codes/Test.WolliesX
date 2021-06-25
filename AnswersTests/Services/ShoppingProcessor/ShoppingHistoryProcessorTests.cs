@@ -1,19 +1,17 @@
-﻿using NUnit.Framework;
-using Answers.Services.Interfaces.ShoppingProcessor;
-using System;
+﻿using Answers.Extensions;
+using NUnit.Framework;
 using System.Collections.Generic;
-using System.Text;
-using Answers.Extensions;
 
 namespace Answers.Services.Interfaces.ShoppingProcessor.Tests
 {
     [TestFixture()]
     public class ShoppingHistoryProcessorTests
     {
-        string productjsonstring;
-        List<KeyValuePair<string, double>> out_lst;
+        private string productjsonstring;
+        private List<KeyValuePair<string, double>> out_lst;
 
         private ShoppingHistoryProcessor shoppingHistoryProcessor;
+
         [SetUp]
         public void SetUp()
         {
@@ -22,6 +20,7 @@ namespace Answers.Services.Interfaces.ShoppingProcessor.Tests
             out_lst.Add(new KeyValuePair<string, double>("Test Product A", 3));
             productjsonstring = "[{\"customerId\":123,\"products\":[{\"name\":\"Test Product A\",\"price\":99.99,\"quantity\":3.0}]}]";
         }
+
         [Test()]
         public void ProcessShoppingHistoryForProductOccuranceTest()
         {

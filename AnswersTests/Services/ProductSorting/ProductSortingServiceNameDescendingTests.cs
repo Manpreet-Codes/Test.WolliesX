@@ -1,20 +1,17 @@
-﻿using NUnit.Framework;
-using Answers.Services.Interfaces.ProductSorting;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Answers.Extensions;
 using Answers.Modal;
-using Answers.Extensions;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace Answers.Services.Interfaces.ProductSorting.Tests
 {
     [TestFixture()]
     public class ProductSortingServiceNameDescendingTests
     {
-        List<Product> products;
-        List<Product> out_products;
+        private List<Product> products;
+        private List<Product> out_products;
 
-        ProductSortingServiceNameDescending ProductSortingServiceNameDescending;
+        private ProductSortingServiceNameDescending ProductSortingServiceNameDescending;
 
         [SetUp]
         public void SetUp()
@@ -29,7 +26,6 @@ namespace Answers.Services.Interfaces.ProductSorting.Tests
             out_products.Add(new Product() { name = "Proct C", price = 30, quantity = 0 });
             out_products.Add(new Product() { name = "Proct B", price = 10, quantity = 0 });
             out_products.Add(new Product() { name = "Proct A", price = 20, quantity = 0 });
-            
 
             ProductSortingServiceNameDescending = new ProductSortingServiceNameDescending();
         }

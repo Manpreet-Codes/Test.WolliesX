@@ -1,20 +1,17 @@
-﻿using NUnit.Framework;
-using Answers.Services.Interfaces.ProductSorting;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Answers.Extensions;
 using Answers.Modal;
-using Answers.Extensions;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace Answers.Services.Interfaces.ProductSorting.Tests
 {
     [TestFixture()]
     public class ProductSortingServiceNameAscendingTests
     {
-        List<Product> products;
-        List<Product> out_products;
+        private List<Product> products;
+        private List<Product> out_products;
 
-        ProductSortingServiceNameAscending ProductSortingServiceNameAscending;
+        private ProductSortingServiceNameAscending ProductSortingServiceNameAscending;
 
         [SetUp]
         public void SetUp()

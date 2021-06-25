@@ -5,9 +5,9 @@ namespace Answers.Services.Service
 {
     public class UserService : IUserService
     {
-        public JsonResult AuthenticateUser()
+        public IActionResult AuthenticateUser()
         {
-            return new JsonResult(new { name = "Manpreet Singh", token = new Guid().ToString() });
+            return new JsonResult(new { name = "Manpreet Singh", token = Guid.NewGuid() });
         }
     }
 }

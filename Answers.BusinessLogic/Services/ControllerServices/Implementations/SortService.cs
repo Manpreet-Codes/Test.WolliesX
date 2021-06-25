@@ -3,6 +3,7 @@ using Answers.Services.Interfaces.ProductSorting;
 using Answers.Services.Interfaces.ShoppingProcessors;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Answers.Services.Service
@@ -32,28 +33,41 @@ namespace Answers.Services.Service
         {
             List<Product> products = await _productProcessor.ProcessProducts();
 
-            if (SortType.Equals("low", StringComparison.InvariantCultureIgnoreCase))
+            if (products != null && products.Count != 0)
             {
-                return await _productSortingServiceLowPrice.SortProductData(products);
-            }
-            else if (SortType.Equals("high", StringComparison.InvariantCultureIgnoreCase))
-            {
-                return await _productSortingServiceHighPrice.SortProductData(products);
-            }
-            else if (SortType.Equals("Ascending", StringComparison.InvariantCultureIgnoreCase))
-            {
-                return await _productSortingServiceNameAscending.SortProductData(products);
-            }
-            else if (SortType.Equals("Descending", StringComparison.InvariantCultureIgnoreCase))
-            {
-                return await _productSortingServiceNameDescending.SortProductData(products);
-            }
-            else if (SortType.Equals("Recommended", StringComparison.InvariantCultureIgnoreCase))
-            {
-                return await _productSortingServiceNameRecommeded.SortProductData(products);
-            }
 
-            return null;
+                if (SortType.Equals("low", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return await _productSortingServiceLowPrice.SortProductData(products);
+                }
+                else if (SortType.Equals("high", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return await _productSortingServiceHighPrice.SortProductData(products);
+                }
+                else if (SortType.Equals("Ascending", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return await _productSortingServiceNameAscending.SortProductData(products);
+                }
+                else if (SortType.Equals("Descending", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return await _productSortingServiceNameDescending.SortProductData(products);
+                }
+                else if (SortType.Equals("Recommended", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return await _productSortingServiceNameRecommeded.SortProductData(products);
+                }
+                else
+                {
+                    string error_json = "[{\"code\":\"400\",\"Message\":\"Bad Request Invalid Query String sortoption\"}]";
+                    throw new HttpRequestException(error_json) { };
+                }
+            }
+            else
+            {
+                string error_json = "[{\"code\":\"500\",\"Message\":\"No Product Information Available, Contact Admin or check App Settings\"}]";
+                throw new HttpRequestException(error_json) { };
+            }
+            
         }
     }
 }

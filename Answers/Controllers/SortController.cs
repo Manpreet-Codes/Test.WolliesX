@@ -1,6 +1,8 @@
 ﻿using Answers.Services.Service;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Answers.Controllers
@@ -22,11 +24,14 @@ namespace Answers.Controllers
         {
             try
             {
-                var arr_res = Task.Run(async () => await _sortService.PerformSort(sortoption)).ConfigureAwait(false).GetAwaiter().GetResult(); ;
-
-                return Ok(arr_res);
+                var response = Task.Run(async () => await _sortService.PerformSort(sortoption)).GetAwaiter().GetResult();
+                return Ok(response);
             }
-            catch (Exception exp)
+            catch (HttpRequestException exp)
+            {                
+                return BadRequest(exp.Message);
+            }
+            catch(Exception exp)
             {
                 throw exp;
             }

@@ -1,3 +1,4 @@
+using Answers.Extensions;
 using Answers.Services.Implementations;
 using Answers.Services.Interfaces;
 using Answers.Services.Interfaces.Data;
@@ -5,6 +6,7 @@ using Answers.Services.Interfaces.ProductSorting;
 using Answers.Services.Interfaces.ShoppingProcessor;
 using Answers.Services.Interfaces.ShoppingProcessors;
 using Answers.Services.Service;
+using Answers.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,20 +28,9 @@ namespace Answers
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.RegisterAppObjects(Configuration);
 
-            services.AddScoped<IHttpDataService, HttpDataService>();
-            services.AddScoped<IHttpClientServiceGet, HttpClientServiceGet>();
-            services.AddScoped<IHttpClientServicePost, HttpClientServicePost>();
-            services.AddScoped<IProductSortingServiceHighPrice, ProductSortingServiceHighPrice>();
-            services.AddScoped<IProductSortingServiceLowPrice, ProductSortingServiceLowPrice>();
-            services.AddScoped<IProductSortingServiceNameAscending, ProductSortingServiceNameAscending>();
-            services.AddScoped<IProductSortingServiceNameDescending, ProductSortingServiceNameDescending>();
-            services.AddScoped<IProductSortingServiceNameRecommeded, ProductSortingServiceNameRecommeded>();
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<ISortService, SortService>();
-            //services.AddScoped<ITrolleyTotalService, TrolleyTotalService>();
-            services.AddScoped<IShoppingHistoryProcessor, ShoppingHistoryProcessor>();
-            services.AddScoped<IProductProcessor, ProductProcessor>();
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
