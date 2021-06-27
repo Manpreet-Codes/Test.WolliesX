@@ -13,4 +13,5 @@ namespace Answers.Modal
         [JsonProperty("quantity")]
         public double quantity { get; set; }
     }
+
 }

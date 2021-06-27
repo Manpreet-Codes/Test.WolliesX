@@ -1,4 +1,5 @@
-﻿using Answers.Services.Implementations;
+﻿using Answers.BusinessLogic.Services.ControllerServices.Implementations;
+using Answers.Services.Implementations;
 using Answers.Services.Interfaces;
 using Answers.Services.Interfaces.Data;
 using Answers.Services.Interfaces.ProductSorting;
@@ -28,7 +29,7 @@ namespace Answers.Extensions
             services.AddScoped<IProductSortingServiceNameRecommeded, ProductSortingServiceNameRecommeded>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ISortService, SortService>();
-            //services.AddScoped<ITrolleyTotalService, TrolleyTotalService>();
+            services.AddScoped<ITrolleyTotalService, TrolleyTotalService>();
             services.AddScoped<IShoppingHistoryProcessor, ShoppingHistoryProcessor>();
             services.AddScoped<IProductProcessor, ProductProcessor>();
 

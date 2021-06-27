@@ -1,5 +1,7 @@
-﻿using Answers.Services.Service;
+﻿using Answers.BusinessLogic.Services.ControllerServices.Implementations;
+using Answers.Services.Service;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Answers.Controllers
 {
@@ -16,7 +18,7 @@ namespace Answers.Controllers
 
         [HttpGet]
         public IActionResult Get()
-        {
+        {           
             return _userService.AuthenticateUser();
         }
     }

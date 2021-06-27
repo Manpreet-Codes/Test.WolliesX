@@ -1,6 +1,10 @@
-﻿namespace Answers.Services.Service
+﻿using Answers.Models.Model;
+using System.Threading.Tasks;
+
+namespace Answers.Services.Service
 {
-    internal interface ITrolleyTotalService
+    public interface ITrolleyTotalService
     {
+        Task<decimal> CalculateTotal(Products products);
     }
 }

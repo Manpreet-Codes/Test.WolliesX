@@ -31,7 +31,7 @@ namespace Answers.Services.Interfaces.ShoppingProcessors.Tests
 
             products = new List<Product>();
             string productjsonstring = "[{\"name\":\"Test Product A\",\"price\":99.99,\"quantity\":3.0}]";
-            products.Add(new Product() { name = "Test Product A", price = 99.99, quantity = 3.0 });
+            products.Add(new Product() { Name = "Test Product A", price = 99.99, quantity = 3.0 });
 
             httpDataServiceMock.Setup(p => p.GetRequest(It.IsAny<string>())).Returns(Task.FromResult(productjsonstring));
 

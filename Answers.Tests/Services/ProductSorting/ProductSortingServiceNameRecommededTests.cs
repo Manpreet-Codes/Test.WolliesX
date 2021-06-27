@@ -42,13 +42,13 @@ namespace Answers.Services.Interfaces.ProductSorting.Tests
             out_lst.Add(new KeyValuePair<string, double>("Proct B", 7));
             //out_lst.Add(new KeyValuePair<string, double>("Proct C", 9));
 
-            products.Add(new Product() { name = "Proct B", price = 0, quantity = 0 });
-            products.Add(new Product() { name = "Proct A", price = 0, quantity = 0 });
-            products.Add(new Product() { name = "Proct C", price = 0, quantity = 0 });
+            products.Add(new Product() { Name = "Proct B", price = 0, quantity = 0 });
+            products.Add(new Product() { Name = "Proct A", price = 0, quantity = 0 });
+            products.Add(new Product() { Name = "Proct C", price = 0, quantity = 0 });
 
-            out_products.Add(new Product() { name = "Proct A", price = 0, quantity = 0 });
-            out_products.Add(new Product() { name = "Proct B", price = 0, quantity = 0 });
-            out_products.Add(new Product() { name = "Proct C", price = 0, quantity = 0 });
+            out_products.Add(new Product() { Name = "Proct A", price = 0, quantity = 0 });
+            out_products.Add(new Product() { Name = "Proct B", price = 0, quantity = 0 });
+            out_products.Add(new Product() { Name = "Proct C", price = 0, quantity = 0 });
 
             string productjsonstring = "[{\"customerId\":123,\"products\":[{\"name\":\"Test Product A\",\"price\":99.99,\"quantity\":3.0}]}]";
 
