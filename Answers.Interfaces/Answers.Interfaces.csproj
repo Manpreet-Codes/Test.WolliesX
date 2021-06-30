@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Answers.DataLayer\Answers.Models.csproj" />
+    <ProjectReference Include="..\Answers.DataLayer\Answers.Entities.csproj" />
   </ItemGroup>
 
 </Project>

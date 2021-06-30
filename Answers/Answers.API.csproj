@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Answers.DataLayer\Answers.Models.csproj" />
+    <ProjectReference Include="..\Answers.DataLayer\Answers.Entities.csproj" />
     <ProjectReference Include="..\Answers.Interfaces\Answers.Interfaces.csproj" />
     <ProjectReference Include="..\Answers.Mediator\Answers.Mediator.csproj" />
   </ItemGroup>

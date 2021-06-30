@@ -18,10 +18,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Answers.BusinessLogic\Answers.Core.csproj" />
-    <ProjectReference Include="..\Answers.DataLayer\Answers.Models.csproj" />
+    <ProjectReference Include="..\Answers.DataLayer\Answers.Entities.csproj" />
     <ProjectReference Include="..\Answers.Interfaces\Answers.Interfaces.csproj" />
     <ProjectReference Include="..\Answers.Mediator\Answers.Mediator.csproj" />
-    <ProjectReference Include="..\Answers\Answers.API.csproj" />
+    <ProjectReference Include="..\Answers\Answers.Api.csproj" />
   </ItemGroup>
 
 </Project>
