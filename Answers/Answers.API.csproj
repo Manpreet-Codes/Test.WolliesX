@@ -22,6 +22,7 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.2.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Include="MailKit" Version="2.13.0" />
     <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
@@ -34,8 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Answers.BusinessLogic\Answers.BusinessLogic.csproj" />
     <ProjectReference Include="..\Answers.DataLayer\Answers.Models.csproj" />
+    <ProjectReference Include="..\Answers.Interfaces\Answers.Interfaces.csproj" />
+    <ProjectReference Include="..\Answers.Mediator\Answers.Mediator.csproj" />
   </ItemGroup>
 
 </Project>

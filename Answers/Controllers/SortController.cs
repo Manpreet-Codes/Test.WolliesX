@@ -1,7 +1,6 @@
 ﻿using Answers.Services.Service;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -28,10 +27,10 @@ namespace Answers.Controllers
                 return Ok(response);
             }
             catch (HttpRequestException exp)
-            {                
+            {
                 return BadRequest(exp.Message);
             }
-            catch(Exception exp)
+            catch (Exception exp)
             {
                 throw exp;
             }

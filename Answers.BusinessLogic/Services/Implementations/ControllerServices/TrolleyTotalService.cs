@@ -1,38 +1,34 @@
-﻿using Answers.Modal;
+﻿using Answers.BusinessLogic.Services.Interfaces.Trolley;
+using Answers.Modal;
 using Answers.Models.Model;
 using Answers.Services.Service;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Answers.BusinessLogic.Services.ControllerServices.Implementations
 {
     public class TrolleyTotalService : ITrolleyTotalService
     {
+        private readonly ITotalAmountCalculator _totalAmountCalculator;
+        private readonly ITrolleyCalculatorSpecialsProcessor _trolleyCalculatorSpecialsProcessor;
+
+        public TrolleyTotalService(ITotalAmountCalculator totalAmountCalculator, ITrolleyCalculatorSpecialsProcessor trolleyCalculatorSpecialsProcessor)
+        {
+            _totalAmountCalculator = totalAmountCalculator;
+            _trolleyCalculatorSpecialsProcessor = trolleyCalculatorSpecialsProcessor;
+        }
+
         public async Task<decimal> CalculateTotal(Products trolleyProduct)
         {
-            //jsonRequest = "{\"products\": [{\"name\": \"Test Product A\", \"price\": 5},{ \"name\": \"Test Product B\", \"price\": 4}  ],  \"specials\": [{ \"quantities\": [   {\"name\": \"Test Product A\",\"quantity\": 2   },  {\"name\": \"Test Product B\",\"quantity\": 2   } ], \"total\": 11}],  \"quantities\": [{ \"name\": \"Test Product A\", \"quantity\": 3},{ \"name\": \"Test Product B\", \"quantity\": 3}  ]}";
-            //var trolleyProduct = JsonSerializer.Deserialize<Products>(jsonRequest);
-
-            
-
-            var TotalAmount = await CalculateTotalAmountWithoutSpecials(trolleyProduct);
+            var TotalAmount = await _totalAmountCalculator.CalculateTotalAmountWithoutSpecials(trolleyProduct);
 
             decimal org_TotalAmount = TotalAmount;
 
-            var specials = await GetSpecialsToApplySortedByHighestValue(trolleyProduct);
-
-            TotalAmount = await ApplySpecialsToTrolleyProduct(trolleyProduct, specials, TotalAmount);
+            TotalAmount = await _trolleyCalculatorSpecialsProcessor.ApplySpecialsToTrolleyProduct(trolleyProduct, TotalAmount);
 
             return org_TotalAmount > TotalAmount ? TotalAmount : org_TotalAmount;
-
-
         }
-
-
 
         private async Task<decimal> CalculateTotalAmountWithoutSpecials(Products trolleyProduct)
         {
@@ -74,7 +70,6 @@ namespace Answers.BusinessLogic.Services.ControllerServices.Implementations
 
                     if (bFound == false)
                         break;
-
                 }
 
                 if (bFound == true)
@@ -83,7 +78,7 @@ namespace Answers.BusinessLogic.Services.ControllerServices.Implementations
                 }
             }
 
-            return specialsToApply.OrderByDescending(p => p.total).ToList();
+            return specialsToApply;
         }
 
         private async Task<decimal> ApplySpecialsToTrolleyProduct(Products trolleyProduct, List<Special> specialsToApply, decimal TotalAmount)
@@ -98,10 +93,7 @@ namespace Answers.BusinessLogic.Services.ControllerServices.Implementations
 
         private async Task<bool> IsSpecialQuantityStillApply(Special special, List<Product> products)
         {
-
             bool bFound = false;
-
-
 
             foreach (var qu in special.quantities)
             {
@@ -114,11 +106,8 @@ namespace Answers.BusinessLogic.Services.ControllerServices.Implementations
                         break;
                     }
                 }
-
             }
             return bFound;
-
-
         }
 
         private async Task<decimal> ApplySpecialToTrolleyProducts(Special special, Products trolleyProduct, decimal TotalAmount)
@@ -142,7 +131,6 @@ namespace Answers.BusinessLogic.Services.ControllerServices.Implementations
                         }
                     }
                     TotalAmount -= priceToSubs;
-
                 }
                 TotalAmount += priceToAdd;
             }
@@ -150,5 +138,4 @@ namespace Answers.BusinessLogic.Services.ControllerServices.Implementations
             return TotalAmount;
         }
     }
-    
 }

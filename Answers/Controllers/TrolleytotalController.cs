@@ -2,7 +2,6 @@
 using Answers.Services.Service;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -12,18 +11,19 @@ namespace Answers.Controllers
     [ApiController]
     public class TrolleytotalController : ControllerBase
     {
-        ITrolleyTotalService _trolleyTotalService;
+        private ITrolleyTotalService _trolleyTotalService;
+        private static bool mailSent = false;
+
         public TrolleytotalController(ITrolleyTotalService trolleyTotalService)
         {
             _trolleyTotalService = trolleyTotalService;
         }
+
         [HttpPost]
         public IActionResult CalculateTotal([FromBody]Products products)
         {
             try
-       {
-               
-
+            {
                 var response = Task.Run(async () => await _trolleyTotalService.CalculateTotal(products)).GetAwaiter().GetResult();
                 return Ok(response);
             }
@@ -36,6 +36,5 @@ namespace Answers.Controllers
                 throw exp;
             }
         }
-        
     }
 }

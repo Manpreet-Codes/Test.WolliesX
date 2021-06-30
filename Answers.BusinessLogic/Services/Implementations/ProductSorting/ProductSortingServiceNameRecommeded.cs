@@ -2,7 +2,6 @@
 using Answers.Services.Interfaces.Data;
 using Answers.Services.Interfaces.ShoppingProcessor;
 using Answers.Settings;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,10 +26,10 @@ namespace Answers.Services.Interfaces.ProductSorting
         public async Task<List<Product>> SortProductData(List<Product> products)
         {
             List<Product> SortedProducts = new List<Product>();
-                       
+
             var shopppingHistory = await _httpDataService.GetRequest(ShoppingHistoryUrl);
 
-             var res_prods = await _shoppingHistoryProcessor.ProcessShoppingHistoryForProductOccurance(shopppingHistory);
+            var res_prods = await _shoppingHistoryProcessor.ProcessShoppingHistoryForProductOccurance(shopppingHistory);
 
             var grp2 = res_prods.OrderByDescending(x => x.Value).Select(x => x.Key).ToList();
 

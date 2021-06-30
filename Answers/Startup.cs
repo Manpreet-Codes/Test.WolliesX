@@ -1,11 +1,4 @@
 using Answers.Extensions;
-using Answers.Services.Implementations;
-using Answers.Services.Interfaces;
-using Answers.Services.Interfaces.Data;
-using Answers.Services.Interfaces.ProductSorting;
-using Answers.Services.Interfaces.ShoppingProcessor;
-using Answers.Services.Interfaces.ShoppingProcessors;
-using Answers.Services.Service;
 using Answers.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

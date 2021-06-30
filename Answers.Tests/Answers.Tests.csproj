@@ -17,9 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Answers.BusinessLogic\Answers.BusinessLogic.csproj" />
+    <ProjectReference Include="..\Answers.BusinessLogic\Answers.Core.csproj" />
     <ProjectReference Include="..\Answers.DataLayer\Answers.Models.csproj" />
-    <ProjectReference Include="..\Answers\Answers.csproj" />
+    <ProjectReference Include="..\Answers.Interfaces\Answers.Interfaces.csproj" />
+    <ProjectReference Include="..\Answers.Mediator\Answers.Mediator.csproj" />
+    <ProjectReference Include="..\Answers\Answers.API.csproj" />
   </ItemGroup>
 
 </Project>

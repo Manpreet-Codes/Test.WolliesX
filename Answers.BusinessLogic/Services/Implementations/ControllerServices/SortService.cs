@@ -35,7 +35,6 @@ namespace Answers.Services.Service
 
             if (products != null && products.Count != 0)
             {
-
                 if (SortType.Equals("low", StringComparison.InvariantCultureIgnoreCase))
                 {
                     return await _productSortingServiceLowPrice.SortProductData(products);
@@ -67,7 +66,6 @@ namespace Answers.Services.Service
                 string error_json = "[{\"code\":\"500\",\"Message\":\"No Product Information Available, Contact Admin or check App Settings\"}]";
                 throw new HttpRequestException(error_json) { };
             }
-            
         }
     }
 }

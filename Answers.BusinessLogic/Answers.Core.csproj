@@ -7,11 +7,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="2.2.0" />
+    <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Answers.DataLayer\Answers.Models.csproj" />
+    <ProjectReference Include="..\Answers.Interfaces\Answers.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
