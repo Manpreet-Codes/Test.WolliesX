@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Answers.Services.Interfaces.ShoppingProcessor
+namespace Answers.Services.Core.ShoppingProcessor
 {
     public class ShoppingHistoryProcessor : IShoppingHistoryProcessor
     {

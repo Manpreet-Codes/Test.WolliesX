@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Answers.Services.Interfaces
+namespace Answers.Services.Core
 {
     public class HttpClientServiceGet : IHttpClientServiceGet
     {
@@ -27,10 +27,6 @@ namespace Answers.Services.Interfaces
                 string error_json = "[{\"code\":\"500\",\"Message\":\"Error Happend while accessing product Information, Contact Admin or check App Settings\"}]";
                 throw new HttpRequestException(error_json) { };
             }
-
         }
     }
 }
-
-
-    

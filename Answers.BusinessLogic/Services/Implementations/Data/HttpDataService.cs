@@ -1,5 +1,5 @@
-﻿using Answers.Services.Interfaces;
-using Answers.Services.Interfaces.Data;
+﻿using Answers.Services.Core;
+using Answers.Services.Core.Data;
 using System.Threading.Tasks;
 
 namespace Answers.Services.Implementations

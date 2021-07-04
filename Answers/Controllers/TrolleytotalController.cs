@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Answers.Models.Model;
+using Answers.Services.Service;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Answers.Controllers
 {
@@ -6,31 +11,30 @@ namespace Answers.Controllers
     [ApiController]
     public class TrolleytotalController : ControllerBase
     {
+        private ITrolleyTotalService _trolleyTotalService;
+        private static bool mailSent = false;
+
+        public TrolleytotalController(ITrolleyTotalService trolleyTotalService)
+        {
+            _trolleyTotalService = trolleyTotalService;
+        }
+
         [HttpPost]
-        public IActionResult CalculateTotal(string sortoption)
+        public IActionResult CalculateTotal([FromBody]Products products)
         {
-            return Ok();
-        }
-
-        private void CalculateTotalAmount()
-        {
-        }
-
-        private void GetAllSpecialsForProducts()
-        {
-        }
-
-        private void SortAllSpecialsAccordingToHighPrice()
-        {
-        }
-
-        private void ApplySpecialsToPurchase()
-        {
-            //Resuresive apply one
-            //minus the quantity
-            //minus the full purchase price
-            //add reduced total
-            //then move to next
+            try
+            {
+                var response = Task.Run(async () => await _trolleyTotalService.CalculateTotal(products)).GetAwaiter().GetResult();
+                return Ok(response);
+            }
+            catch (HttpRequestException exp)
+            {
+                return BadRequest(exp.Message);
+            }
+            catch (Exception exp)
+            {
+                throw exp;
+            }
         }
     }
 }
