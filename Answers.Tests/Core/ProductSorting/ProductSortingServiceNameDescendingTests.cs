@@ -3,7 +3,7 @@ using Answers.Modal;
 using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace Answers.Services.Interfaces.ProductSorting.Tests
+namespace Answers.Services.Core.ProductSorting.Tests
 {
     [TestFixture()]
     public class ProductSortingServiceNameDescendingTests

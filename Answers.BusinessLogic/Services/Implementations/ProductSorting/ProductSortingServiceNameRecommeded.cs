@@ -1,13 +1,13 @@
 ﻿using Answers.Modal;
-using Answers.Services.Interfaces.Data;
-using Answers.Services.Interfaces.ShoppingProcessor;
+using Answers.Services.Core.Data;
+using Answers.Services.Core.ShoppingProcessor;
 using Answers.Settings;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Answers.Services.Interfaces.ProductSorting
+namespace Answers.Services.Core.ProductSorting
 {
     public class ProductSortingServiceNameRecommeded : IProductSortingServiceNameRecommeded
     {

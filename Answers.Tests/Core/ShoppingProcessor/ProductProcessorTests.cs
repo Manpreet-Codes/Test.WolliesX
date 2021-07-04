@@ -1,6 +1,6 @@
 ﻿using Answers.Extensions;
 using Answers.Modal;
-using Answers.Services.Interfaces.Data;
+using Answers.Services.Core.Data;
 using Answers.Settings;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -8,7 +8,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Answers.Services.Interfaces.ShoppingProcessors.Tests
+namespace Answers.Services.Core.ShoppingProcessors.Tests
 {
     [TestFixture()]
     public class ProductProcessorTests

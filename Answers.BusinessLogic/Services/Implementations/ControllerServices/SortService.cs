@@ -1,6 +1,6 @@
 ﻿using Answers.Modal;
-using Answers.Services.Interfaces.ProductSorting;
-using Answers.Services.Interfaces.ShoppingProcessors;
+using Answers.Services.Core.ProductSorting;
+using Answers.Services.Core.ShoppingProcessors;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Answers.Services.Interfaces
+namespace Answers.Services.Core
 {
     public interface IHttpClientServiceGet
     {

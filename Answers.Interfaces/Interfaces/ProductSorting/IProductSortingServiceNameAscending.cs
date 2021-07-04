@@ -1,4 +1,4 @@
-﻿namespace Answers.Services.Interfaces.ProductSorting
+﻿namespace Answers.Services.Core.ProductSorting
 {
     public interface IProductSortingServiceNameAscending : IProductSortingService
     {

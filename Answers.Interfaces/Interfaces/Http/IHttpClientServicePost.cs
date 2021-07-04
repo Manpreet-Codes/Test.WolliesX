@@ -1,4 +1,4 @@
-﻿namespace Answers.Services.Interfaces
+﻿namespace Answers.Services.Core
 {
     public interface IHttpClientServicePost
     {

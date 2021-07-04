@@ -1,7 +1,7 @@
 ﻿using Answers.Extensions;
 using Answers.Modal;
-using Answers.Services.Interfaces.Data;
-using Answers.Services.Interfaces.ShoppingProcessor;
+using Answers.Services.Core.Data;
+using Answers.Services.Core.ShoppingProcessor;
 using Answers.Settings;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -9,7 +9,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Answers.Services.Interfaces.ProductSorting.Tests
+namespace Answers.Services.Core.ProductSorting.Tests
 {
     [TestFixture()]
     public class ProductSortingServiceNameRecommededTests

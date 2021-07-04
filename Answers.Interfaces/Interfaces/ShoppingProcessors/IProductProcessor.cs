@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Answers.Services.Interfaces.ShoppingProcessors
+namespace Answers.Services.Core.ShoppingProcessors
 {
     public interface IProductProcessor
     {

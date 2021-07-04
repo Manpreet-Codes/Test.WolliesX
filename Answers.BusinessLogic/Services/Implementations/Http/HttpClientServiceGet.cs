@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Answers.Services.Interfaces
+namespace Answers.Services.Core
 {
     public class HttpClientServiceGet : IHttpClientServiceGet
     {

@@ -2,11 +2,11 @@
 using Answers.BusinessLogic.Services.Implementations.Trolley;
 using Answers.BusinessLogic.Services.Interfaces.Trolley;
 using Answers.Services.Implementations;
-using Answers.Services.Interfaces;
-using Answers.Services.Interfaces.Data;
-using Answers.Services.Interfaces.ProductSorting;
-using Answers.Services.Interfaces.ShoppingProcessor;
-using Answers.Services.Interfaces.ShoppingProcessors;
+using Answers.Services.Core;
+using Answers.Services.Core.Data;
+using Answers.Services.Core.ProductSorting;
+using Answers.Services.Core.ShoppingProcessor;
+using Answers.Services.Core.ShoppingProcessors;
 using Answers.Services.Service;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

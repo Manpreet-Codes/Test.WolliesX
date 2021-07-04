@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace Answers.Services.Interfaces.ShoppingProcessor.Tests
+namespace Answers.Services.Core.ShoppingProcessor.Tests
 {
     [TestFixture()]
     public class ShoppingHistoryProcessorTests

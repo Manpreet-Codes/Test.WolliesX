@@ -1,5 +1,5 @@
 ﻿using Answers.Modal;
-using Answers.Services.Interfaces.Data;
+using Answers.Services.Core.Data;
 using Answers.Settings;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Answers.Services.Interfaces.ShoppingProcessors
+namespace Answers.Services.Core.ShoppingProcessors
 {
     public class ProductProcessor : IProductProcessor
     {

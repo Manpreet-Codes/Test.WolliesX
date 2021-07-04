@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Answers.Services.Interfaces.Data
+namespace Answers.Services.Core.Data
 {
     public interface IHttpDataService
     {

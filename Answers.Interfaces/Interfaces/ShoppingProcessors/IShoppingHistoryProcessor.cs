@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Answers.Services.Interfaces.ShoppingProcessor
+namespace Answers.Services.Core.ShoppingProcessor
 {
     public interface IShoppingHistoryProcessor
     {
